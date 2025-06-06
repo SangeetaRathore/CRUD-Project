@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer</title>
+  <title>Customer Page</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <h2>Add Customer</h2>
-  <form id="customerForm">
-    <input type="text" id="name" placeholder="Name" />
-    <input type="text" id="email" placeholder="Email" />
-    <input type="text" id="address" placeholder="Address" />
+  <div id="coustmer-main-box">
+    <h1>Add Customer</h1>
+    <form id="customerForm">
+      <input type="text" id="name" placeholder="Name" />
+      <input type="text" id="email" placeholder="Email" />
+      <input type="text" id="address" placeholder="Address" />
+    </form>
+
     <button type="submit">Add</button>
-  </form>
 
-  <h3>Customer List</h3>
-  <table id="customerTable"></table>
+    <h2>Customer List</h2>
 
+    <table id="customerTable"></table>
+  </div>
 
 </body>
-<script src="./js/customer.js"></script>
+<script src="./script.js"></script>
 
 </html>

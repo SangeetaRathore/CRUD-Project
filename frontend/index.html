@@ -10,27 +10,33 @@
 </head>
 
 <body>
-    <h2>Create Invoice</h2>
-    <label for="customerInput">Customer</label>
-    <input type="text" id="customerInput" />
 
-    <table id="itemTable" style="border: 2p solid black">
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Quantity</th>
-        </tr>
-    </table>
-    <button onclick="addItemRow()">Add Item</button>
-    <p>Total: ₹<span id="totalAmount">0</span></p>
-    <button onclick="downloadPDF()">Download Invoice</button>
+    <div id="main-box">
+        <h1>Create Invoice</h1>
 
+        <div id="coustomrName">
+            <label for="customerInput">Customer</label>
+            <input type="text" id="customerInput" />
+        </div>
 
+        <table id="itemTable" style="border: 2p solid black">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </table>
+
+        <button onclick="addItemRow()">Add Item</button>
+
+        <h4>Total: ₹<span id="totalAmount">0</span></h4>
+        
+        <button onclick="downloadPDF()">Download Invoice</button>
+
+    </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/autocomp/autocomp.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="./js/invoice.js"></script>
+<script src="./script.js"></script>
 <script>
     autocomp(document.getElementById('customerInput'), {
         source: async (input) => {
