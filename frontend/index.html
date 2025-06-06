@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice page</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <h2>Create Invoice</h2>
+    <label for="customerInput">Customer</label>
+    <input type="text" id="customerInput" />
+
+    <table id="itemTable" style="border: 2p solid black">
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </table>
+    <button onclick="addItemRow()">Add Item</button>
+    <p>Total: ₹<span id="totalAmount">0</span></p>
+    <button onclick="downloadPDF()">Download Invoice</button>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/autocomp/autocomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="./js/invoice.js"></script>
+<script>
+    autocomp(document.getElementById('customerInput'), {
+        source: async (input) => {
+            const res = await fetch('http://localhost:3000/customers'); // Adjust as per backend
+            const customers = await res.json();
+            return customers.map(c => c.name).filter(n => n.toLowerCase().includes(input.toLowerCase()));
+        }
+    });
+
+</script>
+
+</html>
